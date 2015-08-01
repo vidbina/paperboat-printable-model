@@ -1,11 +1,11 @@
-module boat(length=30, width=30, height=10) {
+module boat(length=20, width=10, height=10) {
   base = 0;
   rim = 10;
 
   polyhedron(
     points = [
-      [10, 0, rim], [0, -5, rim-5], [-10, 0, rim], [0, 5, rim-5],
-      [5, 0, base], [-5, 0, base]
+      [length/2, 0, height], [0, -width/2, height/2], [-length/2, 0, height], [0, width/2, height/2],
+      [length/4, 0, base], [-length/4, 0, base]
     ],
     triangles = [
       [0, 4, 1], [1, 4, 5], [2, 1, 5], // side
@@ -22,3 +22,4 @@ module boat(length=30, width=30, height=10) {
 //                   B
 
 boat();
+tower();
