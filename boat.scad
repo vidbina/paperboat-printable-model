@@ -25,14 +25,15 @@ module tower(width=2.5, height=15, length=5) {
       [0, width, 0], [0, -width, 0]  // sides
     ],
     triangles = [
-      [0, 1, 3], [0, 1, 4], [0, 2, 3], [0, 2, 4]
+      [0, 1, 3], [0, 1, 4], [0, 2, 3], [0, 2, 4],
+      [1, 2, 3], [1, 2, 4] // bottom
     ]
   );
 }
 
-module boat(height=15, length=20) {
-  hull(length=length, width=length/2, height=height*2/3);
-  tower(width=length/8, height=height, length=length/4);
+module boat(tower=5, length=20, rim=10) {
+  hull(length=length, width=length/2, height=rim);
+  translate([0, 0, rim/2]) tower(width=length/8, height=tower, length=length/4);
 }
 
 boat();
