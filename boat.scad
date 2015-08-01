@@ -1,4 +1,4 @@
-module boat(length=20, width=10, height=10) {
+module hull(length=20, width=10, height=10) {
   base = 0;
   rim = 10;
 
@@ -30,10 +30,9 @@ module tower(width=2.5, height=15, length=5) {
   );
 }
 
-//  SIDE          TOP
-//  A---B---C        B
-//    D---E       A     C
-//                   B
+module boat(height=15, length=20) {
+  hull(length=length, width=length/2, height=height*2/3);
+  tower(width=length/8, height=height, length=length/4);
+}
 
 boat();
-tower(width=5, height=15, length=5);
