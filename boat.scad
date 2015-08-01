@@ -17,7 +17,6 @@ module hull(length=20, width=10, height=10) {
 }
 
 module tower(width=2.5, height=15, length=5) {
-  // solve non-manifolds by specifying a base
   polyhedron(
     points = [
       [0, 0, height],  // top
@@ -33,7 +32,7 @@ module tower(width=2.5, height=15, length=5) {
 
 module boat(tower=5, length=20, rim=10) {
   hull(length=length, width=length/2, height=rim);
-  translate([0, 0, rim/2]) tower(width=length/8, height=tower, length=length/4);
+  translate([0, 0, -1+rim/2]) tower(width=length/8, height=tower+1, length=length/4);
 }
 
 boat();
