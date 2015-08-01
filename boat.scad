@@ -16,10 +16,24 @@ module boat(length=20, width=10, height=10) {
   translate([10, 10, 0]) sphere(1);
 }
 
+module tower(width=2.5, height=15, length=5) {
+  // solve non-manifolds by specifying a base
+  polyhedron(
+    points = [
+      [0, 0, height],  // top
+      [length, 0, 0], [-length, 0, 0], // edges
+      [0, width, 0], [0, -width, 0]  // sides
+    ],
+    triangles = [
+      [0, 1, 3], [0, 1, 4], [0, 2, 3], [0, 2, 4]
+    ]
+  );
+}
+
 //  SIDE          TOP
 //  A---B---C        B
 //    D---E       A     C
 //                   B
 
 boat();
-tower();
+tower(width=5, height=15, length=5);
